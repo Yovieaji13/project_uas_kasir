@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "861037069557",
+    "project_id": "projectuas-bb1c6",
+    "storage_bucket": "projectuas-bb1c6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861037069557:android:20e675afe630bc6140b1bc",
+        "android_client_info": {
+          "package_name": "com.example.project_uas_kasir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861037069557-uauh8i20e005kbcb4lnhcnfdtastsd8b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.project_uas_kasir",
+            "certificate_hash": "8d614e99b6df1946722b364506a7e0270c53c802"
+          }
+        },
+        {
+          "client_id": "861037069557-qro3elvi6fq2vd97ff0ke84vlfj3a7ot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXsBL8x7dZTjAHfb555CNJbCCS33Wsmwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861037069557-qro3elvi6fq2vd97ff0ke84vlfj3a7ot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

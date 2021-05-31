@@ -179,6 +179,32 @@ class RegistrasiPageState extends State<RegistrasiPage> {
                 ),
               ),
             ),
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+              child: RaisedButton(
+                onPressed: () {
+                  MaterialPageRoute route =
+                      MaterialPageRoute(builder: (_) => LoginPage());
+                  Navigator.push(context, route);
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0)),
+                textColor: Colors.black,
+                padding: const EdgeInsets.all(0),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50.0,
+                  width: size.width * 10,
+                  padding: const EdgeInsets.all(0),
+                  child: Text(
+                    "Back",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

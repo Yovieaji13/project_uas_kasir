@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_uas_kasir/registrasipage.dart';
+import 'package:project_uas_kasir/pages/registrasipage.dart';
+import 'package:project_uas_kasir/service/sign_in.dart';
+import 'first_screen.dart';
+import 'start_screen.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -32,7 +35,10 @@ class LoginPageState extends State<LoginPage> {
               padding: EdgeInsets.all(10),
               child: Text(
                 'Sign in',
-                style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
@@ -86,16 +92,30 @@ class LoginPageState extends State<LoginPage> {
                 //forgot password screen
               },
               textColor: Colors.white,
-              child: Text('Forgot Password', style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),),
+              child: Text(
+                'Forgot Password',
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+              ),
             ),
             Container(
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: RaisedButton(
                 onPressed: () {
-
+                  signInWithGoogle().then((result) {
+                    if (result != null) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return FirstScreen();
+                          },
+                        ),
+                      );
+                    }
+                  });
                 },
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0)),
                 textColor: Colors.black,
                 padding: const EdgeInsets.all(0),
                 child: Container(
@@ -106,9 +126,33 @@ class LoginPageState extends State<LoginPage> {
                   child: Text(
                     "Login",
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+              child: RaisedButton(
+                onPressed: () {
+                  MaterialPageRoute route =
+                      MaterialPageRoute(builder: (_) => StartScreen());
+                  Navigator.push(context, route);
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0)),
+                textColor: Colors.black,
+                padding: const EdgeInsets.all(0),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50.0,
+                  width: size.width * 10,
+                  padding: const EdgeInsets.all(0),
+                  child: Text(
+                    "Back",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -122,7 +166,8 @@ class LoginPageState extends State<LoginPage> {
                     textColor: Colors.white,
                     child: Text(
                       'Sign up',
-                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                     ),
                     onPressed: () {
                       MaterialPageRoute route =
