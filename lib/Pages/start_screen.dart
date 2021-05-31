@@ -23,21 +23,41 @@ class StartScreenState extends State<StartScreen> {
         child: ListView(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.all(10),
-              // child: Image(
-              //   image: NetworkImage(
-              //       'https://scontent-cgk1-1.xx.fbcdn.net/v/t1.6435-9/104438863_3351848721706094_7197417179988458720_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=JiQNBS1tDZkAX8LmlwX&_nc_ht=scontent-cgk1-1.xx&oh=9b606f9f56cf463a837005572baf8a31&oe=60D25DD2'),
-              // ),
+              padding: const EdgeInsets.only(top: 60, left: 10),
+              child: RotatedBox(
+                quarterTurns: -1,
+                child: Text(
+                  'Welcome To',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 38,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
+              ),
             ),
             Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(10),
-              child: Text(
-                'Welcome at Kasir Morfeen Official',
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+              padding: const EdgeInsets.only(top: 30.0, left: 10.0),
+              child: Container(
+                //color: Colors.green,
+                height: 200,
+                width: 200,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      height: 60,
+                    ),
+                    Center(
+                      child: Text(
+                        'Kasir Morfeen Official',
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -80,8 +100,8 @@ class StartScreenState extends State<StartScreen> {
               child: RaisedButton(
                 onPressed: () {
                   MaterialPageRoute route =
-                          MaterialPageRoute(builder: (_) => LoginPage());
-                      Navigator.push(context, route);
+                      MaterialPageRoute(builder: (_) => LoginPage());
+                  Navigator.push(context, route);
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_uas_kasir/pages/registrasipage.dart';
 import 'package:project_uas_kasir/service/sign_in.dart';
-import 'first_screen.dart';
+import 'second_screen.dart';
 import 'start_screen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,7 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class LoginPageState extends State<LoginPage> {
-  TextEditingController usernameController = new TextEditingController();
+  TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
   final formkey = new GlobalKey<FormState>();
 
@@ -44,7 +44,7 @@ class LoginPageState extends State<LoginPage> {
             Padding(
               padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextFormField(
-                controller: usernameController,
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 style: TextStyle(color: Colors.white),
                 validator: (username) {
@@ -57,7 +57,7 @@ class LoginPageState extends State<LoginPage> {
                       borderSide: BorderSide(color: Colors.white, width: 1.5)),
                   focusedBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white, width: 1.5)),
-                  labelText: 'Username',
+                  labelText: 'Email',
                   labelStyle: TextStyle(
                     color: Colors.white,
                   ),
@@ -102,17 +102,15 @@ class LoginPageState extends State<LoginPage> {
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: RaisedButton(
                 onPressed: () {
-                  signInWithGoogle().then((result) {
-                    if (result != null) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return FirstScreen();
-                          },
-                        ),
-                      );
-                    }
-                  });
+                  signInEmail(emailController.text, passwordController.text)
+                    .then((result) {
+                  if (result != null) {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return SecondScreen();
+                    }));
+                  }
+                });
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)),

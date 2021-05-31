@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'loginpage.dart';
+import 'package:project_uas_kasir/service/sign_in.dart';
 
 class RegistrasiPage extends StatefulWidget {
   @override
@@ -157,9 +158,21 @@ class RegistrasiPageState extends State<RegistrasiPage> {
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: RaisedButton(
                 onPressed: () {
-                  MaterialPageRoute route =
-                      MaterialPageRoute(builder: (_) => LoginPage());
-                  Navigator.push(context, route);
+                  createUserWithEmailAndPassword(
+                          emailController.text, passwordController.text)
+                      .then(
+                    (result) {
+                      if (result != null) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return LoginPage();
+                            },
+                          ),
+                        );
+                      }
+                    },
+                  );
                 },
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(80.0)),
                 textColor: Colors.black,
