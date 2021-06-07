@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'start_screen.dart';
+import 'stock_screen.dart';
 import 'package:project_uas_kasir/service/sign_in.dart';
 
 class FirstScreen extends StatelessWidget {
@@ -71,6 +72,25 @@ class FirstScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'Sign Out',
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                ),
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40)),
+              ),
+              SizedBox(height: 10),
+             RaisedButton(
+                onPressed: () {
+                MaterialPageRoute route =
+                          MaterialPageRoute(builder: (_) => StockScreen());
+                      Navigator.push(context, route);
+                },
+                color: Colors.deepPurple,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Stock',
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                 ),

@@ -37,7 +37,7 @@ class StartScreenState extends State<StartScreen> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.only(top: 30.0, left: 10.0),
+              padding: const EdgeInsets.only( left: 10.0, bottom: 50),
               child: Container(
                 //color: Colors.green,
                 height: 200,
@@ -53,6 +53,7 @@ class StartScreenState extends State<StartScreen> {
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.white,
+                          fontWeight: FontWeight.w200,
                         ),
                       ),
                     ),
@@ -60,7 +61,8 @@ class StartScreenState extends State<StartScreen> {
                 ),
               ),
             ),
-            Container(
+           SizedBox(height: 80),
+           Container(
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: RaisedButton(
