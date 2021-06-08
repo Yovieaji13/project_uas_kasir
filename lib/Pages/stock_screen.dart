@@ -10,6 +10,7 @@ class StockScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text('Stock Morfeen'),
         actions: <Widget>[
           IconButton(

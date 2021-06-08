@@ -57,7 +57,6 @@ class _EditStockState extends State<EditStock> {
         stockProvider.loadValues(widget.stock);
       });
     }
-
     super.initState();
   }
 
@@ -66,7 +65,9 @@ class _EditStockState extends State<EditStock> {
     final stockProvider = Provider.of<StockProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text('Update Stock')),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        title: Text('Update Stock')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(

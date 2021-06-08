@@ -20,16 +20,23 @@ class LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(20),
         child: ListView(
           children: <Widget>[
+            SizedBox(height: 30),
             Container(
-              padding: EdgeInsets.all(10),
-              child: Image(
-                image: NetworkImage(
-                    'https://scontent-cgk1-1.xx.fbcdn.net/v/t1.6435-9/104438863_3351848721706094_7197417179988458720_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=JiQNBS1tDZkAX8LmlwX&_nc_ht=scontent-cgk1-1.xx&oh=9b606f9f56cf463a837005572baf8a31&oe=60D25DD2'),
+              width: 200,
+              height: 300,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100.0),
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'https://scontent-cgk1-1.xx.fbcdn.net/v/t1.6435-9/104438863_3351848721706094_7197417179988458720_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=JiQNBS1tDZkAX8LmlwX&_nc_ht=scontent-cgk1-1.xx&oh=9b606f9f56cf463a837005572baf8a31&oe=60D25DD2'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
+            SizedBox(height: 30),
             Container(
               alignment: Alignment.center,
               padding: EdgeInsets.all(10),
@@ -103,14 +110,14 @@ class LoginPageState extends State<LoginPage> {
               child: RaisedButton(
                 onPressed: () {
                   signInEmail(emailController.text, passwordController.text)
-                    .then((result) {
-                  if (result != null) {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return SecondScreen();
-                    }));
-                  }
-                });
+                      .then((result) {
+                    if (result != null) {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return SecondScreen();
+                      }));
+                    }
+                  });
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)),
