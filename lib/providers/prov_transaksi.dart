@@ -13,7 +13,7 @@ class TransaksiProvider with ChangeNotifier {
   var uuid = Uuid();
 
   get transaksiId => this._transaksiId;
- set transaksiId( value) => this._transaksiId = value;
+//  set transaksiId( value) => this._transaksiId = value;
 
   get codeProduk => this._codeProduk;
  changecodeProduk(String value){
