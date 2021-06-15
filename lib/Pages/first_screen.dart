@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
 import 'transaksi_screen.dart';
 import 'stock_screen.dart';
 import 'start_screen.dart';
@@ -13,7 +12,7 @@ class FirstScreen extends StatelessWidget {
         slivers: <Widget>[
           SliverAppBar(
             backgroundColor: Colors.black,
-            expandedHeight: 150.0,
+            expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: Text(
@@ -30,7 +29,7 @@ class FirstScreen extends StatelessWidget {
             delegate: SliverChildListDelegate([
               GridView.count(
                 shrinkWrap: true,
-                crossAxisCount: 4,
+                crossAxisCount: 3,
                 crossAxisSpacing: 10.0,
                 mainAxisSpacing: 10.0,
                 children: <Widget>[

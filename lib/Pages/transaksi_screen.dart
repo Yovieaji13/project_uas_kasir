@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:project_uas_kasir/models/transaksi.dart';
 import 'editTrans_screen.dart';
+import 'laporan.dart';
 
 class TransaksiScreen extends StatelessWidget {
   @override
@@ -34,9 +35,10 @@ class TransaksiScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
-                    transaksi[index].codeProduk,
+                    transaksi[index].codeProduk + ' - Size ' + transaksi[index].size,
                   ),
-                  subtitle: Text(transaksi[index].size),
+                  subtitle: Text('Rp.' + transaksi[index].harga.toString()),
+                  trailing: Text('Order ' + transaksi[index].qty.toString() + ' pcs' ),
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(

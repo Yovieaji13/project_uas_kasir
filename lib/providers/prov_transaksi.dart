@@ -10,6 +10,9 @@ class TransaksiProvider with ChangeNotifier {
   String _size;
   int _harga;
   int _qty;
+  int _uang;
+  int _total;
+  int _kembalian;
   var uuid = Uuid();
 
   get transaksiId => this._transaksiId;
@@ -39,12 +42,33 @@ class TransaksiProvider with ChangeNotifier {
   notifyListeners();
  }
 
+   get uang => this._uang;
+ changeuang(String value){
+   _uang = int.parse(value);
+  notifyListeners();
+ }
+
+  get total => this._total;
+ changetotal(String value){
+   _total = int.parse(value);
+  notifyListeners();
+ }
+
+   get kembalian => this._kembalian;
+ changekembalian(String value){
+   _kembalian = int.parse(value);
+  notifyListeners();
+ }
+
   loadValues(Transaksi transaksi) {
     _transaksiId = transaksi.transaksiId;
     _codeProduk = transaksi.codeProduk;
     _size = transaksi.size;
     _harga = transaksi.harga;
     _qty = transaksi.qty;
+    _uang = transaksi.uang;
+    _total = transaksi.total;
+    _kembalian = transaksi.kembalian;
   }
 
   //create/update
@@ -57,15 +81,22 @@ class TransaksiProvider with ChangeNotifier {
         size: size,
         harga: harga,
         qty: qty,
+        uang: uang,
+        total: total,
+        kembalian: kembalian,
       );
       firestoreservice.saveTransaksi(newTransaksi);
     } else {
       //Update
       var updatedTransaksi = Transaksi(
-        codeProduk: codeProduk,
-        size: size,
-        harga: harga,
-        qty: qty,
+        transaksiId: transaksiId,
+        codeProduk: _codeProduk,
+        size: _size,
+        harga: _harga,
+        qty: _qty,
+        uang: _uang,
+        total: _total,
+        kembalian: _kembalian,
       );
       firestoreservice.saveTransaksi(updatedTransaksi);
     }
@@ -73,6 +104,6 @@ class TransaksiProvider with ChangeNotifier {
 
   //delete
   removeTransaksi(String transaksiId) {
-    firestoreservice.removeStock(transaksiId);
+    firestoreservice.removeTransaksi(transaksiId);
   }
 }

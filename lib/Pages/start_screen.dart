@@ -23,29 +23,37 @@ class StartScreenState extends State<StartScreen> {
         child: ListView(
           children: <Widget>[
             Container(
-              padding: const EdgeInsets.only(top: 60, left: 10),
-              child: RotatedBox(
-                quarterTurns: -1,
-                child: Text(
-                  'Welcome To',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 38,
-                    fontWeight: FontWeight.w900,
+                padding: const EdgeInsets.only(top: 60, left: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                  // RotatedBox(
+                  //   quarterTurns: -1,
+                  //   child: Text(
+                  //     'Welcome To',
+                  //     style: TextStyle(
+                  //       color: Colors.white,
+                  //       fontSize: 38,
+                  //       fontWeight: FontWeight.w900,
+                  //     ),
+                  //   ),
+                  // ),
+                  Image(
+                    image: NetworkImage(
+                        'https://scontent.fsub1-2.fna.fbcdn.net/v/t1.6435-9/196306669_2065779846895189_3694894279922058653_n.jpg?_nc_cat=101&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEKkmnTmtxv06k8c2IHV_yoGhBSsoyJCbwaEFKyjIkJvFmRKfrUBqU7lxqPN6_BouvbwKvv-q_iGTpGD9YhCRrM&_nc_ohc=YGkhj9hiFxEAX8QCnBA&_nc_ht=scontent.fsub1-2.fna&oh=5be1c9ea1352adeb29fb69f65ca5f0ec&oe=60CAD386'),
+                    height: 200,
                   ),
-                ),
-              ),
-            ),
+                ])),
             Container(
-              padding: const EdgeInsets.only( left: 10.0, bottom: 50),
+              padding: const EdgeInsets.only(left: 10.0, bottom: 50),
               child: Container(
                 //color: Colors.green,
-                height: 200,
+                height: 100,
                 width: 200,
                 child: Column(
                   children: <Widget>[
                     Container(
-                      height: 60,
+                      height: 30,
                     ),
                     Center(
                       child: Text(
@@ -61,8 +69,8 @@ class StartScreenState extends State<StartScreen> {
                 ),
               ),
             ),
-           SizedBox(height: 80),
-           Container(
+            SizedBox(height: 200),
+            Container(
               alignment: Alignment.centerRight,
               margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
               child: RaisedButton(

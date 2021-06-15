@@ -23,20 +23,15 @@ class LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.all(20),
         child: ListView(
           children: <Widget>[
-            SizedBox(height: 30),
+            SizedBox(height: 150),
             Container(
-              width: 200,
-              height: 300,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100.0),
-                image: DecorationImage(
-                  image: NetworkImage(
-                      'https://scontent-cgk1-1.xx.fbcdn.net/v/t1.6435-9/104438863_3351848721706094_7197417179988458720_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=JiQNBS1tDZkAX8LmlwX&_nc_ht=scontent-cgk1-1.xx&oh=9b606f9f56cf463a837005572baf8a31&oe=60D25DD2'),
-                  fit: BoxFit.cover,
-                ),
+              child: Image(
+                image: NetworkImage(
+                    'https://scontent.fsub1-2.fna.fbcdn.net/v/t1.6435-9/191256953_2065773930229114_5298015830780953105_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeF_yfcwkcKKhkCxyaEPtm9UrTA3MOwWv1WtMDcw7Ba_Vfb68Oo1Zge62fOymfp07RkY-VEZU1Seuwx3i7vGnl3y&_nc_ohc=EBRu06R4ctQAX-FKQ65&_nc_ht=scontent.fsub1-2.fna&oh=1c245b53e490c1265035995a61ae1dde&oe=60CAB3E8'),
               ),
+              height: 100,
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 110),
             Container(
               alignment: Alignment.center,
               padding: EdgeInsets.all(10),
