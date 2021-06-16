@@ -34,10 +34,10 @@ class StockScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Text(
-                    stock[index].article,
+                    stock[index].article + '' + stock[index].codeArticle,
                   ),
-                  subtitle: Text(stock[index].codeArticle),
-                  trailing: Text(stock[index].size),
+                  subtitle: Text('Stock ' + stock[index].qty.toString() + ' pcs - Size ' + stock[index].size),
+                  trailing: Text('Rp.' + stock[index].price.toString() + '/pcs'),
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(

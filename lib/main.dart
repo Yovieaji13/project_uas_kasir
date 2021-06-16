@@ -22,12 +22,10 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => StockProvider()),
         StreamProvider(
           create: (context) => firestoreService.getstock(),
-          // initialData: initialData,
         ),
         ChangeNotifierProvider(create: (context) => TransaksiProvider()),
         StreamProvider(
           create: (context) => firestoreService.getTransaksi(),
-          //  initialData: initialData,
         ),
       ],
       child: MaterialApp(

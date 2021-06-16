@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:project_uas_kasir/models/transaksi.dart';
 import 'editTrans_screen.dart';
-import 'laporan.dart';
 
 class TransaksiScreen extends StatelessWidget {
   @override

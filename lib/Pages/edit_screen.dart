@@ -66,13 +66,25 @@ class _EditStockState extends State<EditStock> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Update Stock')),
+          backgroundColor: Colors.black,
+          title: Text('Update Stock'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.cancel,
+                size: 30.0,
+              ),
+              onPressed: () {
+                      stockProvider.removeStock(widget.stock.stockId);
+                      Navigator.of(context).pop();             
+              },
+            )
+          ]),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
               child: TextField(
                 controller: artcileController,
@@ -106,7 +118,7 @@ class _EditStockState extends State<EditStock> {
                 },
               ),
             ),
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
               child: TextField(
                 controller: sizeController,
@@ -123,7 +135,7 @@ class _EditStockState extends State<EditStock> {
                 },
               ),
             ),
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
               child: TextField(
                 controller: qtyController,
@@ -140,7 +152,7 @@ class _EditStockState extends State<EditStock> {
                 },
               ),
             ),
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
               child: TextField(
                 controller: priceController,
@@ -160,25 +172,22 @@ class _EditStockState extends State<EditStock> {
             SizedBox(
               height: 20.0,
             ),
-            RaisedButton(
-              child: Text('Save'),
-              onPressed: () {
-                stockProvider.saveStock();
-                Navigator.of(context).pop();
-              },
-            ),
-            (widget.stock != null)
-                ? RaisedButton(
-                    child: Text('Delete'),
-                    onPressed: () {
-                      stockProvider.removeStock(widget.stock.stockId);
-                      Navigator.of(context).pop();
-                    },
-                  )
-                : Container(),
+            ListTile(
+              title: Text('Warning : ', style: TextStyle(fontWeight: FontWeight.bold),),
+              subtitle: Text('1. Input stock barang yang masuk sesuai invoice'
+              + '\n2. Wajib mengupdate stock apabila ada perubahan'
+              + '\n3. Setiap seminggu sekali check stock'),
+            )
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
+          onPressed: () {
+            stockProvider.saveStock();
+            Navigator.of(context).pop();
+          },
+          child: Icon(Icons.archive_outlined)),
     );
   }
 }

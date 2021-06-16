@@ -19,13 +19,13 @@ class _EditTransState extends State<EditTrans> {
   final hargaController = TextEditingController();
   final qtyController = TextEditingController();
   final uangController = TextEditingController();
-  int harga, qty, total,kembalian, uang;
+  int harga, qty, total, kembalian, uang;
 
-  void Total(){
+  void Total() {
     total = int.parse(hargaController.text) * int.parse(qtyController.text);
   }
 
-  void Kembalian(){
+  void Kembalian() {
     kembalian = int.parse(uangController.text) - total;
   }
 
@@ -73,16 +73,29 @@ class _EditTransState extends State<EditTrans> {
   @override
   Widget build(BuildContext context) {
     final transaksiProvider = Provider.of<TransaksiProvider>(context);
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('Transaksi')),
+          backgroundColor: Colors.black,
+          title: Text('Transaksi'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.cancel,
+                size: 30.0,
+              ),
+              onPressed: () {
+                transaksiProvider.removeTransaksi(widget.transaksi.transaksiId);
+                Navigator.of(context).pop();
+              },
+            )
+          ]),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
               child: TextField(
                 controller: codeProdukController,
@@ -99,7 +112,7 @@ class _EditTransState extends State<EditTrans> {
                 },
               ),
             ),
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
               child: TextField(
                 controller: sizeController,
@@ -116,7 +129,7 @@ class _EditTransState extends State<EditTrans> {
                 },
               ),
             ),
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
               child: TextField(
                 controller: hargaController,
@@ -133,7 +146,7 @@ class _EditTransState extends State<EditTrans> {
                 },
               ),
             ),
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
               child: TextField(
                 controller: qtyController,
@@ -150,7 +163,7 @@ class _EditTransState extends State<EditTrans> {
                 },
               ),
             ),
-           Padding(
+            Padding(
               padding: EdgeInsets.only(top: 5.0, bottom: 5.0),
               child: TextField(
                 controller: uangController,
@@ -170,38 +183,48 @@ class _EditTransState extends State<EditTrans> {
             SizedBox(
               height: 20.0,
             ),
-            RaisedButton(
-              child: Text('Save'),
-              onPressed: () {
-                Total();     
-                Kembalian();    
-                transaksiProvider.changekembalian(kembalian.toString());
-                transaksiProvider.changetotal(total.toString());
-                transaksiProvider.saveTransaksi();
-                Navigator.of(context).pop();
-              },
+            Container(
+              alignment: Alignment.centerRight,
+              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+              child: RaisedButton(
+                onPressed: () {
+                  Total();
+                  Kembalian();
+                  transaksiProvider.changekembalian(kembalian.toString());
+                  transaksiProvider.changetotal(total.toString());
+                  transaksiProvider.saveTransaksi();
+                  Navigator.of(context).pop();
+                },
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0)),
+                    color: Colors.black,
+                textColor: Colors.white,
+                padding: const EdgeInsets.all(0),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50.0,
+                  width: size.width * 10,
+                  padding: const EdgeInsets.all(0),
+                  child: Text(
+                    "Save",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
             ),
-            (widget.transaksi != null)
-                ? RaisedButton(
-                    child: Text('Delete'),
-                    onPressed: () {
-                      transaksiProvider.removeTransaksi(widget.transaksi.transaksiId);
-                      Navigator.of(context).pop();
-                    },
-                  )
-                : Container(),
           ],
         ),
       ),
-          floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton(
+          backgroundColor: Colors.black,
           onPressed: () {
             Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(builder: (context) {
               return Laporan();
             }), ModalRoute.withName('/'));
           },
-          child: Icon(Icons.file_copy_outlined)
-          ),
+          child: Icon(Icons.file_copy_outlined)),
     );
   }
 }

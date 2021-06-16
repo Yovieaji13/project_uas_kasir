@@ -74,11 +74,19 @@ class Laporan extends StatelessWidget {
               title: Text('Pembayaran Tunai' + '\nKembalian',),
               trailing: Text('Rp.' + uang.toString() + '\nRp.' + kembalian.toString()),
             ),
-            SizedBox(height: 120),
+            SizedBox(height: 5),
             Column(children: [
+            Container(
+              child: Image(
+                image: NetworkImage(
+                    'https://scontent.fsub1-1.fna.fbcdn.net/v/t1.6435-9/198192556_2067353150071192_3150405486655905605_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeFju45bALTrAy8QoRArMM_cYHKkQBOzwTBgcqRAE7PBMNGkuM3PnF0GTEi_4kI2Rh_0-KlIhHibfQXkBXJT_hjZ&_nc_ohc=Cfw6_E7ioSAAX9FHZ4H&_nc_ht=scontent.fsub1-1.fna&oh=6f884698c0dd26c6e4017152df2ffada&oe=60CD3D33'),
+              ),
+              height: 100,
+            ),
+            SizedBox(height: 20,),
               Text('Terima Kasih Telah Belanja Di Toko Kami',
                   style: TextStyle(fontSize: 14)),
-              Text('@morfeen.official',
+              Text('Follow @morfeen.official',
                   style: TextStyle(height: 2, fontSize: 14)),
             ]),
             SizedBox(height: 20,),
@@ -88,6 +96,7 @@ class Laporan extends StatelessWidget {
       ),
 
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
           onPressed: () {
             Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(builder: (context) {

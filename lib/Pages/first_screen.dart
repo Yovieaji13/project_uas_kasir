@@ -128,6 +128,7 @@ class FirstScreen extends StatelessWidget {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
           onPressed: () {
             signOutGoogle();
             Navigator.of(context).pushAndRemoveUntil(
